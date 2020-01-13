@@ -1,6 +1,7 @@
 import fileinput
 import sys
 import re
+import os
 
 def convert_file_to_json(file):
     i = 0
@@ -23,7 +24,11 @@ def convert_file_to_json(file):
             if match is not None and len(match.groups()) > 0:
                 line = line.replace(match.groups()[0], match.groups()[1])
             print(line, end='')
-
-file = sys.argv[1]
-convert_file_to_json(file)
+        f.close()
+    
+# file = sys.argv[1]
+# convert_file_to_json(file)
+for file in os.listdir('.'):
+    if (file.endswith('.txt')):
+        print(file)
             
