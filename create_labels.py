@@ -6,10 +6,9 @@ genre = 'Genre'
 imdbId = 'imdbID'
 
 def write_label_entry(entry):
-    genres = entry[genre].replace(',', '')
+    genres = entry[genre].replace(',', '').lower()
     entryId = entry[imdbId]
-    print(entryId + ',' + genres)
-    label_file.write(entryId + ',' + genres)
+    label_file.write(entryId + ',' + genres + '\n')
 
 def add_label_entries(file):
     with open(file, 'r') as f:
